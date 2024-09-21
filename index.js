@@ -5,30 +5,48 @@ fetch("https://ergast.com/api/f1/current.json")
   .then(data => {
     console.log(data);
 
-    const str = data.MRData.RaceTable.Races[0].FirstPractice.time;
-    const str2 = data.MRData.RaceTable.Races[0].FirstPractice.date;
-    let str3 = str2.concat("T", str);
+    const firstPracTimeBahrain =
+      data.MRData.RaceTable.Races[0].FirstPractice.time;
+    const firstPracDateBahrain =
+      data.MRData.RaceTable.Races[0].FirstPractice.date;
+    let firstPracBahrainLocal = firstPracDateBahrain.concat(
+      "T",
+      firstPracTimeBahrain
+    );
 
-    console.log(str3);
-    const options = {
-      timeZone: "America/New_York",
-      hour: "numeric",
-      minute: "numeric",
-    };
+    function localTime() {
+      const options = {
+        timeZone: "America/New_York",
+        hour: "numeric",
+        minute: "numeric",
+      };
 
-    const formatter = new Intl.DateTimeFormat([], options);
+      const formatter = new Intl.DateTimeFormat([], options);
+      const UTCTime = firstPracBahrainLocal;
+      const localTimeBahrain = formatter.format(new Date(UTCTime));
+      console.log(localTimeBahrain);
+    }
+    localTime();
 
-    const UTCTime = str3;
-    const localTime = formatter.format(new Date(UTCTime));
+    // console.log(firstPracBahrainLocal);
+    // const options = {
+    //   timeZone: "America/New_York",
+    //   hour: "numeric",
+    //   minute: "numeric",
+    // };
 
-    console.log(localTime);
+    // const formatter = new Intl.DateTimeFormat([], options);
+    // const UTCTime = firstPracBahrainLocal;
+    // const localTimeBahrain = formatter.format(new Date(UTCTime));
+
+    // console.log(localTimeBahrain);
     const markup = `<table>
     <tbody>
       <tr>
       <tr>
       <td>Free Practice 1</td>
-      <td>${data.MRData.RaceTable.Races[0].SecondPractice.date}</td>
-      <td>${localTime}</td>
+      <td>${data.MRData.RaceTable.Races[0].FirstPractice.date}</td>
+      <td>${localTime(firstPracBahrainLocal)} EST</td>
     </tr>
     <tr>
       <td>Free Practice 2</td>
