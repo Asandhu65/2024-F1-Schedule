@@ -9,12 +9,20 @@ fetch("https://ergast.com/api/f1/current.json")
       data.MRData.RaceTable.Races[0].FirstPractice.time;
     const firstPracDateBahrain =
       data.MRData.RaceTable.Races[0].FirstPractice.date;
+
     let firstPracBahrainLocal = firstPracDateBahrain.concat(
       "T",
       firstPracTimeBahrain
     );
 
-    function localTime() {
+    let firstPracBahrainDateFormat = firstPracTimeBahrain.concat(
+      "T",
+      firstPracDateBahrain
+    );
+
+    console.log(firstPracBahrainDateFormat);
+
+    function localDate() {
       const options = {
         timeZone: "America/New_York",
         hour: "numeric",
@@ -22,9 +30,22 @@ fetch("https://ergast.com/api/f1/current.json")
       };
 
       const formatter = new Intl.DateTimeFormat([], options);
+      const UTCDate = firstPracBahrainLocal;
+      const localDateBahrain = formatter.format(new Date(UTCDate));
+      return localDateBahrain;
+    }
+    localDate();
+
+    function localTime() {
+      const options = {
+        month: "short",
+        day: "2-digit",
+      };
+
+      const formatter = new Intl.DateTimeFormat([], options);
       const UTCTime = firstPracBahrainLocal;
       const localTimeBahrain = formatter.format(new Date(UTCTime));
-      console.log(localTimeBahrain);
+      return localTimeBahrain;
     }
     localTime();
 
@@ -45,8 +66,8 @@ fetch("https://ergast.com/api/f1/current.json")
       <tr>
       <tr>
       <td>Free Practice 1</td>
-      <td>${data.MRData.RaceTable.Races[0].FirstPractice.date}</td>
-      <td>${localTime(firstPracBahrainLocal)} EST</td>
+      <td>${localTime(firstPracBahrainLocal)} </td>
+      <td>${localDate(firstPracBahrainDateFormat)} EST</td>
     </tr>
     <tr>
       <td>Free Practice 2</td>
