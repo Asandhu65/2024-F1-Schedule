@@ -15,64 +15,71 @@ fetch("https://ergast.com/api/f1/current.json")
       firstPracTimeBahrain
     );
 
-    let firstPracBahrainDateFormat = firstPracTimeBahrain.concat(
+    const secondPracTimeBahrain =
+      data.MRData.RaceTable.Races[0].SecondPractice.time;
+    const secondPracDateBahrain =
+      data.MRData.RaceTable.Races[0].SecondPractice.date;
+
+    let secondPracBahrainLocal = secondPracDateBahrain.concat(
       "T",
-      firstPracDateBahrain
+      secondPracTimeBahrain
     );
 
-    console.log(firstPracBahrainDateFormat);
+    class FP1TimeBahrain {
+      constructor(time) {
+        this.time = time;
+        this.options = {
+          timeZone: "America/New_York",
+          timeZoneName: "short",
+          hour: "numeric",
+          minute: "numeric",
+        };
+        this.formatter = new Intl.DateTimeFormat([], this.options);
+      }
 
-    function localDate() {
-      const options = {
-        timeZone: "America/New_York",
-        hour: "numeric",
-        minute: "numeric",
-      };
-
-      const formatter = new Intl.DateTimeFormat([], options);
-      const UTCDate = firstPracBahrainLocal;
-      const localDateBahrain = formatter.format(new Date(UTCDate));
-      return localDateBahrain;
+      getLocalDate() {
+        const localDate = this.formatter.format(new Date(this.time));
+        return localDate;
+      }
     }
-    localDate();
 
-    function localTime() {
-      const options = {
-        month: "short",
-        day: "2-digit",
-      };
+    const fp1 = new FP1TimeBahrain(firstPracBahrainLocal);
+    const fp2 = new FP1TimeBahrain(secondPracBahrainLocal);
+    console.log(fp1.getLocalDate());
+    console.log(fp2.getLocalDate());
 
-      const formatter = new Intl.DateTimeFormat([], options);
-      const UTCTime = firstPracBahrainLocal;
-      const localTimeBahrain = formatter.format(new Date(UTCTime));
-      return localTimeBahrain;
+    class FP1DateBahrain {
+      constructor(date) {
+        this.date = date;
+        this.options = {
+          month: "short",
+          day: "2-digit",
+        };
+        this.formatter = new Intl.DateTimeFormat([], this.options);
+      }
+
+      getFormattedDate() {
+        const localTimeBahrain = this.formatter.format(new Date(this.date));
+        return localTimeBahrain;
+      }
     }
-    localTime();
 
-    // console.log(firstPracBahrainLocal);
-    // const options = {
-    //   timeZone: "America/New_York",
-    //   hour: "numeric",
-    //   minute: "numeric",
-    // };
+    const fp1Date1 = new FP1DateBahrain(firstPracBahrainLocal);
+    const fp1Date2 = new FP1DateBahrain(secondPracBahrainLocal);
+    console.log(fp1Date1.getFormattedDate());
 
-    // const formatter = new Intl.DateTimeFormat([], options);
-    // const UTCTime = firstPracBahrainLocal;
-    // const localTimeBahrain = formatter.format(new Date(UTCTime));
-
-    // console.log(localTimeBahrain);
     const markup = `<table>
     <tbody>
       <tr>
       <tr>
       <td>Free Practice 1</td>
-      <td>${localTime(firstPracBahrainLocal)} </td>
-      <td>${localDate(firstPracBahrainDateFormat)} EST</td>
+      <td>${fp1Date1.getFormattedDate()}</td>
+      <td>${fp1.getLocalDate()}</td>
     </tr>
     <tr>
       <td>Free Practice 2</td>
-      <td>${data.MRData.RaceTable.Races[0].SecondPractice.date}</td>
-      <td>${data.MRData.RaceTable.Races[0].SecondPractice.time}</td>
+      <td>${fp1Date2.getFormattedDate()}</td>
+      <td>${fp2.getLocalDate()}</td>
     </tr>
     <tr>
       <td>Free Practice 3</td>
