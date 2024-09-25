@@ -5,6 +5,49 @@ fetch("https://ergast.com/api/f1/current.json")
   .then(data => {
     console.log(data);
 
+    function getPracticeLocalTimes(data) {
+      const practices = [
+        "FirstPractice",
+        "SecondPractice",
+        "ThirdPractice",
+        "Qualifying",
+      ];
+
+      // Create a variable for each practice time
+      let firstPracLocal, secondPracLocal, thirdPracLocal, qualifyingLocal;
+
+      practices.forEach((practice, index) => {
+        const practiceData = data.MRData.RaceTable.Races[0][practice];
+        if (!practiceData) {
+          throw new Error(`${practice} data not found.`);
+        }
+
+        const { time, date } = practiceData;
+        const localTime = `${date}T${time}`;
+
+        // Assign to the respective variable based on index
+        if (index === 0) firstPracLocal = localTime;
+        if (index === 1) secondPracLocal = localTime;
+        if (index === 2) thirdPracLocal = localTime;
+        if (index === 3) qualifyingLocal = localTime;
+      });
+
+      return {
+        firstPracLocal,
+        secondPracLocal,
+        thirdPracLocal,
+        qualifyingLocal,
+      };
+    }
+
+    // Usage
+    const { firstPracLocal, secondPracLocal, thirdPracLocal, qualifyingLocal } =
+      getPracticeLocalTimes(data);
+    console.log(firstPracLocal);
+    console.log(secondPracLocal);
+    console.log(thirdPracLocal);
+    console.log(qualifyingLocal);
+
     const firstPracTimeBahrain =
       data.MRData.RaceTable.Races[0].FirstPractice.time;
     const firstPracDateBahrain =
@@ -25,6 +68,26 @@ fetch("https://ergast.com/api/f1/current.json")
       secondPracTimeBahrain
     );
 
+    const thirdPracTimeBahrain =
+      data.MRData.RaceTable.Races[0].ThirdPractice.time;
+    const thirdPracDateBahrain =
+      data.MRData.RaceTable.Races[0].ThirdPractice.date;
+
+    let thirdPracBahrainLocal = thirdPracDateBahrain.concat(
+      "T",
+      thirdPracTimeBahrain
+    );
+
+    const bahrainQualiTime = data.MRData.RaceTable.Races[0].Qualifying.time;
+    const bahrainQualiDate = data.MRData.RaceTable.Races[0].Qualifying.date;
+
+    let bahrainQualiLocal = bahrainQualiDate.concat("T", bahrainQualiTime);
+
+    const bahrainRaceTime = data.MRData.RaceTable.Races[0].time;
+    const bahrainRaceDate = data.MRData.RaceTable.Races[0].date;
+
+    let bahrainRaceLocal = bahrainRaceDate.concat("T", bahrainRaceTime);
+
     class FP1TimeBahrain {
       constructor(time) {
         this.time = time;
@@ -43,10 +106,11 @@ fetch("https://ergast.com/api/f1/current.json")
       }
     }
 
-    const fp1 = new FP1TimeBahrain(firstPracBahrainLocal);
-    const fp2 = new FP1TimeBahrain(secondPracBahrainLocal);
-    console.log(fp1.getLocalDate());
-    console.log(fp2.getLocalDate());
+    const bahrainFp1Time = new FP1TimeBahrain(firstPracLocal);
+    const bahrainFp2Time = new FP1TimeBahrain(secondPracLocal);
+    const bahrainFp3Time = new FP1TimeBahrain(thirdPracLocal);
+    // const bahrainQualiTimeLocal = new FP1TimeBahrain(bahrainQualiLocal);
+    // const bahrainGpTimeLocal = new FP1TimeBahrain(bahrainRaceLocal);
 
     class FP1DateBahrain {
       constructor(date) {
@@ -64,37 +128,39 @@ fetch("https://ergast.com/api/f1/current.json")
       }
     }
 
-    const fp1Date1 = new FP1DateBahrain(firstPracBahrainLocal);
-    const fp1Date2 = new FP1DateBahrain(secondPracBahrainLocal);
-    console.log(fp1Date1.getFormattedDate());
+    const bahrainFp1Date = new FP1DateBahrain(firstPracLocal);
+    const bahrainFp2Date = new FP1DateBahrain(secondPracLocal);
+    const bahrainFp3Date = new FP1DateBahrain(thirdPracLocal);
+    // const bahrainQualiDateLocal = new FP1DateBahrain(bahrainQualiLocal);
+    // const bahrainGpDateLocal = new FP1DateBahrain(bahrainRaceLocal);
 
     const markup = `<table>
     <tbody>
       <tr>
       <tr>
       <td>Free Practice 1</td>
-      <td>${fp1Date1.getFormattedDate()}</td>
-      <td>${fp1.getLocalDate()}</td>
+      <td>${bahrainFp1Date.getFormattedDate()}</td>
+      <td>${bahrainFp1Time.getLocalDate()}</td>
     </tr>
     <tr>
       <td>Free Practice 2</td>
-      <td>${fp1Date2.getFormattedDate()}</td>
-      <td>${fp2.getLocalDate()}</td>
+      <td>${bahrainFp2Date.getFormattedDate()}</td>
+      <td>${bahrainFp2Time.getLocalDate()}</td>
     </tr>
     <tr>
       <td>Free Practice 3</td>
-      <td>${data.MRData.RaceTable.Races[0].ThirdPractice.date}</td>
-      <td>${data.MRData.RaceTable.Races[0].ThirdPractice.time}</td>
+      <td>${bahrainFp3Date.getFormattedDate()}</td>
+      <td>${bahrainFp3Time.getLocalDate()}</td>
     </tr>
     <tr>
       <td>Qualifying</td>
-      <td>${data.MRData.RaceTable.Races[0].Qualifying.date}</td>
-      <td>${data.MRData.RaceTable.Races[0].Qualifying.time}</td>
+      <td>${bahrainQualiDateLocal.getFormattedDate()}</td>
+      <td>${bahrainQualiTimeLocal.getLocalDate()}</td>
     </tr>
     <tr>
       <td>Grand Prix</td>
-      <td>${data.MRData.RaceTable.Races[0].date}</td>
-      <td>${data.MRData.RaceTable.Races[0].time}</td>
+      <td>${bahrainGpDateLocal.getFormattedDate()}</td>
+      <td>${bahrainGpTimeLocal.getLocalDate()}</td>
     </tr>
     </tbody>
   </table>`;
