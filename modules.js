@@ -31,7 +31,7 @@ export class ConvertLocalTime {
     this.formatter = new Intl.DateTimeFormat([], this.options);
   }
 
-  getLocalDate() {
+  getLocalTime() {
     const localDate = this.formatter.format(new Date(this.time));
     return localDate;
   }
