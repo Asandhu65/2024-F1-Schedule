@@ -624,6 +624,664 @@ async function main() {
     `;
 
   document.getElementById("miami").insertAdjacentHTML("beforeend", miamiData);
+
+  const emiliaData = `
+      <table>
+        <tbody>
+          <tr>
+            <td>Free Practice 1</td>
+            <td>${new ConvertLocalDate(firstPracEmilia).getFormattedDate()}</td>
+            <td>${new ConvertLocalTime(firstPracEmilia).getLocalTime()}</td>
+          </tr>
+          <tr>
+            <td>Free Practice 2</td>
+            <td>${new ConvertLocalDate(
+              secondPracEmilia
+            ).getFormattedDate()}</td>
+            <td>${new ConvertLocalTime(secondPracEmilia).getLocalTime()}</td>
+          </tr>
+          <tr>
+            <td>Free Practice 3</td>
+            <td>${new ConvertLocalDate(thirdPracEmilia).getFormattedDate()}</td>
+            <td>${new ConvertLocalTime(thirdPracEmilia).getLocalTime()}</td>
+          </tr>
+          <tr>
+            <td>Qualifying</td>
+            <td>${new ConvertLocalDate(
+              qualifyingEmilia
+            ).getFormattedDate()}</td>
+            <td>${new ConvertLocalTime(qualifyingEmilia).getLocalTime()}</td>
+          </tr>
+          <tr>
+            <td>Grand Prix</td>
+            <td>${emiliaRaceDate.getFormattedDate()}</td>
+            <td>${emiliaRaceTime.getLocalTime()}</td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+
+  document.getElementById("emilia").insertAdjacentHTML("beforeend", emiliaData);
+
+  const monacoData = `
+      <table>
+        <tbody>
+          <tr>
+            <td>Free Practice 1</td>
+            <td>${new ConvertLocalDate(firstPracMonaco).getFormattedDate()}</td>
+            <td>${new ConvertLocalTime(firstPracMonaco).getLocalTime()}</td>
+          </tr>
+          <tr>
+            <td>Free Practice 2</td>
+            <td>${new ConvertLocalDate(
+              secondPracMonaco
+            ).getFormattedDate()}</td>
+            <td>${new ConvertLocalTime(secondPracMonaco).getLocalTime()}</td>
+          </tr>
+          <tr>
+            <td>Free Practice 3</td>
+            <td>${new ConvertLocalDate(thirdPracMonaco).getFormattedDate()}</td>
+            <td>${new ConvertLocalTime(thirdPracMonaco).getLocalTime()}</td>
+          </tr>
+          <tr>
+            <td>Qualifying</td>
+            <td>${new ConvertLocalDate(
+              qualifyingMonaco
+            ).getFormattedDate()}</td>
+            <td>${new ConvertLocalTime(qualifyingMonaco).getLocalTime()}</td>
+          </tr>
+          <tr>
+            <td>Grand Prix</td>
+            <td>${monacoRaceDate.getFormattedDate()}</td>
+            <td>${monacoRaceTime.getLocalTime()}</td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+
+  document.getElementById("monaco").insertAdjacentHTML("beforeend", monacoData);
+
+  const canadaData = `
+  <table>
+    <tbody>
+      <tr>
+        <td>Free Practice 1</td>
+        <td>${new ConvertLocalDate(firstPracCanada).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(firstPracCanada).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Free Practice 2</td>
+        <td>${new ConvertLocalDate(secondPracCanada).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(secondPracCanada).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Free Practice 3</td>
+        <td>${new ConvertLocalDate(thirdPracCanada).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(thirdPracCanada).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Qualifying</td>
+        <td>${new ConvertLocalDate(qualifyingCanada).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(qualifyingCanada).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Grand Prix</td>
+        <td>${canadaRaceDate.getFormattedDate()}</td>
+        <td>${canadaRaceTime.getLocalTime()}</td>
+      </tr>
+    </tbody>
+  </table>
+`;
+
+  document.getElementById("canada").insertAdjacentHTML("beforeend", canadaData);
+
+  const spainData = `
+  <table>
+    <tbody>
+      <tr>
+        <td>Free Practice 1</td>
+        <td>${new ConvertLocalDate(firstPracSpain).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(firstPracSpain).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Free Practice 2</td>
+        <td>${new ConvertLocalDate(secondPracSpain).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(secondPracSpain).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Free Practice 3</td>
+        <td>${new ConvertLocalDate(thirdPracSpain).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(thirdPracSpain).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Qualifying</td>
+        <td>${new ConvertLocalDate(qualifyingSpain).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(qualifyingSpain).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Grand Prix</td>
+        <td>${spainRaceDate.getFormattedDate()}</td>
+        <td>${spainRaceTime.getLocalTime()}</td>
+      </tr>
+    </tbody>
+  </table>
+`;
+
+  document.getElementById("spain").insertAdjacentHTML("beforeend", spainData);
+
+  //Sprint Weekend
+  const austriaData = `
+  <table>
+    <tbody>
+      <tr>
+        <td>Free Practice 1</td>
+        <td>${new ConvertLocalDate(firstPracAustria).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(firstPracAustria).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Sprint Qualifying</td>
+        <td>${new ConvertLocalDate(secondPracAustria).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(secondPracAustria).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Sprint</td>
+        <td>${new ConvertLocalDate(thirdPracAustria).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(thirdPracAustria).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Qualifying</td>
+        <td>${new ConvertLocalDate(qualifyingAustria).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(qualifyingAustria).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Grand Prix</td>
+        <td>${austriaRaceDate.getFormattedDate()}</td>
+        <td>${austriaRaceTime.getLocalTime()}</td>
+      </tr>
+    </tbody>
+  </table>
+`;
+
+  document
+    .getElementById("austria")
+    .insertAdjacentHTML("beforeend", austriaData);
+
+  const britishData = `
+  <table>
+    <tbody>
+      <tr>
+        <td>Free Practice 1</td>
+        <td>${new ConvertLocalDate(firstPracBritish).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(firstPracBritish).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Free Practice 2</td>
+        <td>${new ConvertLocalDate(secondPracBritish).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(secondPracBritish).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Free Practice 3</td>
+        <td>${new ConvertLocalDate(thirdPracBritish).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(thirdPracBritish).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Qualifying</td>
+        <td>${new ConvertLocalDate(qualifyingBritish).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(qualifyingBritish).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Grand Prix</td>
+        <td>${britishRaceDate.getFormattedDate()}</td>
+        <td>${britishRaceTime.getLocalTime()}</td>
+      </tr>
+    </tbody>
+  </table>
+`;
+
+  document
+    .getElementById("british")
+    .insertAdjacentHTML("beforeend", britishData);
+
+  const hungaryData = `
+  <table>
+    <tbody>
+      <tr>
+        <td>Free Practice 1</td>
+        <td>${new ConvertLocalDate(firstPracHungary).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(firstPracHungary).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Free Practice 2</td>
+        <td>${new ConvertLocalDate(secondPracHungary).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(secondPracHungary).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Free Practice 3</td>
+        <td>${new ConvertLocalDate(thirdPracHungary).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(thirdPracHungary).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Qualifying</td>
+        <td>${new ConvertLocalDate(qualifyingHungary).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(qualifyingHungary).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Grand Prix</td>
+        <td>${hungaryRaceDate.getFormattedDate()}</td>
+        <td>${hungaryRaceTime.getLocalTime()}</td>
+      </tr>
+    </tbody>
+  </table>
+`;
+
+  document
+    .getElementById("hungary")
+    .insertAdjacentHTML("beforeend", hungaryData);
+
+  const belgianData = `
+    <table>
+      <tbody>
+        <tr>
+          <td>Free Practice 1</td>
+          <td>${new ConvertLocalDate(firstPracBelgian).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(firstPracBelgian).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 2</td>
+          <td>${new ConvertLocalDate(secondPracBelgian).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(secondPracBelgian).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 3</td>
+          <td>${new ConvertLocalDate(thirdPracBelgian).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(thirdPracBelgian).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Qualifying</td>
+          <td>${new ConvertLocalDate(qualifyingBelgian).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(qualifyingBelgian).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Grand Prix</td>
+          <td>${belgianRaceDate.getFormattedDate()}</td>
+          <td>${belgianRaceTime.getLocalTime()}</td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+
+  document
+    .getElementById("belgian")
+    .insertAdjacentHTML("beforeend", belgianData);
+
+  const dutchData = `
+    <table>
+      <tbody>
+        <tr>
+          <td>Free Practice 1</td>
+          <td>${new ConvertLocalDate(firstPracDutch).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(firstPracDutch).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 2</td>
+          <td>${new ConvertLocalDate(secondPracDutch).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(secondPracDutch).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 3</td>
+          <td>${new ConvertLocalDate(thirdPracDutch).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(thirdPracDutch).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Qualifying</td>
+          <td>${new ConvertLocalDate(qualifyingDutch).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(qualifyingDutch).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Grand Prix</td>
+          <td>${dutchRaceDate.getFormattedDate()}</td>
+          <td>${dutchRaceTime.getLocalTime()}</td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+
+  document.getElementById("dutch").insertAdjacentHTML("beforeend", dutchData);
+
+  const italyData = `
+    <table>
+      <tbody>
+        <tr>
+          <td>Free Practice 1</td>
+          <td>${new ConvertLocalDate(firstPracItaly).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(firstPracItaly).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 2</td>
+          <td>${new ConvertLocalDate(secondPracItaly).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(secondPracItaly).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 3</td>
+          <td>${new ConvertLocalDate(thirdPracItaly).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(thirdPracItaly).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Qualifying</td>
+          <td>${new ConvertLocalDate(qualifyingItaly).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(qualifyingItaly).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Grand Prix</td>
+          <td>${italyRaceDate.getFormattedDate()}</td>
+          <td>${italyRaceTime.getLocalTime()}</td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+
+  document.getElementById("italy").insertAdjacentHTML("beforeend", italyData);
+
+  const azerbaijanData = `
+    <table>
+      <tbody>
+        <tr>
+          <td>Free Practice 1</td>
+          <td>${new ConvertLocalDate(
+            firstPracAzerbaijan
+          ).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(firstPracAzerbaijan).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 2</td>
+          <td>${new ConvertLocalDate(
+            secondPracAzerbaijan
+          ).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(secondPracAzerbaijan).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 3</td>
+          <td>${new ConvertLocalDate(
+            thirdPracAzerbaijan
+          ).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(thirdPracAzerbaijan).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Qualifying</td>
+          <td>${new ConvertLocalDate(
+            qualifyingAzerbaijan
+          ).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(qualifyingAzerbaijan).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Grand Prix</td>
+          <td>${azerbaijanRaceDate.getFormattedDate()}</td>
+          <td>${azerbaijanRaceTime.getLocalTime()}</td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+
+  document
+    .getElementById("azerbaijan")
+    .insertAdjacentHTML("beforeend", azerbaijanData);
+
+  const singaporeData = `
+    <table>
+      <tbody>
+        <tr>
+          <td>Free Practice 1</td>
+          <td>${new ConvertLocalDate(
+            firstPracSingapore
+          ).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(firstPracSingapore).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 2</td>
+          <td>${new ConvertLocalDate(
+            secondPracSingapore
+          ).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(secondPracSingapore).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 3</td>
+          <td>${new ConvertLocalDate(
+            thirdPracSingapore
+          ).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(thirdPracSingapore).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Qualifying</td>
+          <td>${new ConvertLocalDate(
+            qualifyingSingapore
+          ).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(qualifyingSingapore).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Grand Prix</td>
+          <td>${singaporeRaceDate.getFormattedDate()}</td>
+          <td>${singaporeRaceTime.getLocalTime()}</td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+
+  document
+    .getElementById("singapore")
+    .insertAdjacentHTML("beforeend", singaporeData);
+
+  //Sprint Weekend
+  const uSAData = `
+  <table>
+    <tbody>
+      <tr>
+        <td>Free Practice 1</td>
+        <td>${new ConvertLocalDate(firstPracUSA).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(firstPracUSA).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Sprint Qualifying</td>
+        <td>${new ConvertLocalDate(secondPracUSA).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(secondPracUSA).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Sprint</td>
+        <td>${new ConvertLocalDate(thirdPracUSA).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(thirdPracUSA).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Qualifying</td>
+        <td>${new ConvertLocalDate(qualifyingUSA).getFormattedDate()}</td>
+        <td>${new ConvertLocalTime(qualifyingUSA).getLocalTime()}</td>
+      </tr>
+      <tr>
+        <td>Grand Prix</td>
+        <td>${uSARaceDate.getFormattedDate()}</td>
+        <td>${uSARaceTime.getLocalTime()}</td>
+      </tr>
+    </tbody>
+  </table>
+`;
+
+  document.getElementById("usa").insertAdjacentHTML("beforeend", uSAData);
+
+  const mexicoData = `
+    <table>
+      <tbody>
+        <tr>
+          <td>Free Practice 1</td>
+          <td>${new ConvertLocalDate(firstPracMexico).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(firstPracMexico).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 2</td>
+          <td>${new ConvertLocalDate(secondPracMexico).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(secondPracMexico).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 3</td>
+          <td>${new ConvertLocalDate(thirdPracMexico).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(thirdPracMexico).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Qualifying</td>
+          <td>${new ConvertLocalDate(qualifyingMexico).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(qualifyingMexico).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Grand Prix</td>
+          <td>${mexicoRaceDate.getFormattedDate()}</td>
+          <td>${mexicoRaceTime.getLocalTime()}</td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+
+  document.getElementById("mexico").insertAdjacentHTML("beforeend", mexicoData);
+
+  //Sprint Weekend
+  const brazilData = `
+    <table>
+      <tbody>
+        <tr>
+          <td>Free Practice 1</td>
+          <td>${new ConvertLocalDate(firstPracBrazil).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(firstPracBrazil).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Sprint Qualifying</td>
+          <td>${new ConvertLocalDate(secondPracBrazil).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(secondPracBrazil).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Sprint</td>
+          <td>${new ConvertLocalDate(thirdPracBrazil).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(thirdPracBrazil).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Qualifying</td>
+          <td>${new ConvertLocalDate(qualifyingBrazil).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(qualifyingBrazil).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Grand Prix</td>
+          <td>${brazilRaceDate.getFormattedDate()}</td>
+          <td>${brazilRaceTime.getLocalTime()}</td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+
+  document.getElementById("brazil").insertAdjacentHTML("beforeend", brazilData);
+
+  const vegasData = `
+    <table>
+      <tbody>
+        <tr>
+          <td>Free Practice 1</td>
+          <td>${new ConvertLocalDate(firstPracVegas).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(firstPracVegas).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 2</td>
+          <td>${new ConvertLocalDate(secondPracVegas).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(secondPracVegas).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 3</td>
+          <td>${new ConvertLocalDate(thirdPracVegas).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(thirdPracVegas).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Qualifying</td>
+          <td>${new ConvertLocalDate(qualifyingVegas).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(qualifyingVegas).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Grand Prix</td>
+          <td>${vegasRaceDate.getFormattedDate()}</td>
+          <td>${vegasRaceTime.getLocalTime()}</td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+
+  document.getElementById("vegas").insertAdjacentHTML("beforeend", vegasData);
+
+  //Sprint Weekend
+  const qatarData = `
+    <table>
+      <tbody>
+        <tr>
+          <td>Free Practice 1</td>
+          <td>${new ConvertLocalDate(firstPracQatar).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(firstPracQatar).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Sprint Qualifying</td>
+          <td>${new ConvertLocalDate(secondPracQatar).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(secondPracQatar).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Sprint</td>
+          <td>${new ConvertLocalDate(thirdPracQatar).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(thirdPracQatar).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Qualifying</td>
+          <td>${new ConvertLocalDate(qualifyingQatar).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(qualifyingQatar).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Grand Prix</td>
+          <td>${qatarRaceDate.getFormattedDate()}</td>
+          <td>${qatarRaceTime.getLocalTime()}</td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+
+  document.getElementById("qatar").insertAdjacentHTML("beforeend", qatarData);
+
+  const abuDhabiData = `
+    <table>
+      <tbody>
+        <tr>
+          <td>Free Practice 1</td>
+          <td>${new ConvertLocalDate(firstPracAbuDhabi).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(firstPracAbuDhabi).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 2</td>
+          <td>${new ConvertLocalDate(
+            secondPracAbuDhabi
+          ).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(secondPracAbuDhabi).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Free Practice 3</td>
+          <td>${new ConvertLocalDate(thirdPracAbuDhabi).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(thirdPracAbuDhabi).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Qualifying</td>
+          <td>${new ConvertLocalDate(
+            qualifyingAbuDhabi
+          ).getFormattedDate()}</td>
+          <td>${new ConvertLocalTime(qualifyingAbuDhabi).getLocalTime()}</td>
+        </tr>
+        <tr>
+          <td>Grand Prix</td>
+          <td>${abuDhabiRaceDate.getFormattedDate()}</td>
+          <td>${abuDhabiRaceTime.getLocalTime()}</td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+
+  document
+    .getElementById("abuDhabi")
+    .insertAdjacentHTML("beforeend", abuDhabiData);
 }
 
 main();
@@ -642,3 +1300,24 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+// Get the current date
+const currentDate = new Date();
+
+// Select all buttons with the class 'date-button'
+const buttons = document.querySelectorAll(".date-button");
+
+// Loop through each button
+buttons.forEach(button => {
+  // Get the event date from the 'data-date' attribute
+  const eventDate = new Date(button.getAttribute("data-date"));
+
+  // Get the bold text element inside the button
+  const eventText = button.querySelector(".event-text");
+
+  // Check if the current date is after the event date
+  if (currentDate >= eventDate) {
+    // Add the 'line-through' class to the event text
+    eventText.classList.add("line-through");
+  }
+});
