@@ -1321,3 +1321,60 @@ buttons.forEach(button => {
     eventText.classList.add("line-through");
   }
 });
+// } else {
+//   // Hide the element if there are no upcoming dates left
+//   eventElement.style.display = "none";
+// }
+// const raceDates = [
+//   new Date("2024-03-02"),
+//   new Date("2024-03-09"),
+//   new Date("2024-03-24"),
+//   new Date("2024-04-07"),
+//   new Date("2024-04-21"),
+//   new Date("2024-05-05"),
+//   new Date("2024-05-19"),
+//   new Date("2024-05-26"),
+//   new Date("2024-06-09"),
+//   new Date("2024-06-23"),
+//   new Date("2024-06-30"),
+//   new Date("2024-07-07"),
+//   new Date("2024-07-21"),
+//   new Date("2024-07-28"),
+//   new Date("2024-08-25"),
+//   new Date("2024-09-01"),
+//   new Date("2024-09-15"),
+//   new Date("2024-09-22"),
+//   new Date("2024-10-20"),
+//   new Date("2024-10-27"),
+//   new Date("2024-11-03"),
+//   new Date("2024-11-24"),
+//   new Date("2024-12-01"),
+//   new Date("2024-12-08"),
+// ];
+
+// const today = new Date();
+// today.setHours(0, 0, 0, 0);
+
+// function getUpcomingDate(dates) {
+//   const upcomingDates = dates.filter(date => date >= today);
+
+//   upcomingDates.sort((a, b) => a - b);
+
+//   return upcomingDates.length > 0 ? upcomingDates[0] : undefined;
+// }
+
+// const closestDate = getUpcomingDate(raceDates);
+
+// const eventElement = document.getElementsByClassName("nextevent");
+
+// if (closestDate) {
+//   if (today.getTime() === closestDate.getTime()) {
+//     eventElement.style.display = "block";
+//   } else {
+//     // Hide the element on all other dates
+//     eventElement.style.display = "none";
+//   }
+// } else {
+//   // Hide the element if there are no upcoming dates left
+//   eventElement.style.display = "none";
+// }

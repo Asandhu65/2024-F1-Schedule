@@ -12,6 +12,7 @@ h1 {
   margin: auto;
   padding: 1rem 0 0 0;
 }
+
 h2 {
   color: #9e0006;
   margin: auto;
@@ -194,4 +195,23 @@ ul {
   text-decoration: line-through;
   color: #5b5a5a;
   text-shadow: none;
+}
+
+.nextevent::before {
+  padding: none;
+  content: "NEXT"; /* Empty content to create a shape */
+  color: black;
+  text-shadow: none;
+  font-size: 10px;
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  position: relative;
+  bottom: 5rem;
+  top: 10rem;
+  right: 17.5rem; /* Position it from the right side */
+  width: 40px; /* Width of the rectangle */
+  height: 20px; /* Height of the rectangle */
+  background-color: rgb(255, 213, 0); /* Color of the rectangle */
+  border-radius: 3px; /* Optional rounded corners */
 }
