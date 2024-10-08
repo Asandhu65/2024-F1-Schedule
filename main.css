@@ -197,21 +197,52 @@ ul {
   text-shadow: none;
 }
 
-.nextevent::before {
+/* .next::before {
+  display: flex;
+  font-weight: bold;
   padding: none;
-  content: "NEXT"; /* Empty content to create a shape */
+  content: "NEXT";
   color: black;
   text-shadow: none;
-  font-size: 10px;
-  display: flex; /* Enable flexbox */
-  justify-content: center; /* Center text horizontally */
-  align-items: center; /* Center text vertically */
-  position: relative;
-  bottom: 5rem;
-  top: 10rem;
-  right: 17.5rem; /* Position it from the right side */
-  width: 40px; /* Width of the rectangle */
-  height: 20px; /* Height of the rectangle */
-  background-color: rgb(255, 213, 0); /* Color of the rectangle */
-  border-radius: 3px; /* Optional rounded corners */
+  font-size: 11px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 50rem;
+  width: 40px;
+  height: 20px;
+  background-color: rgb(255, 213, 0);
+  border-radius: 3px;
+} */
+
+.event-text {
+  position: relative; /* Positioning context for the ::before pseudo-element */
+}
+
+/* Style for the NEXT label */
+.next::before {
+  display: flex;
+  font-weight: bold;
+  content: "NEXT"; /* Content of the pseudo-element */
+  color: black;
+  text-shadow: none;
+  font-size: 11px;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* Absolutely positioned relative to .event-text */
+  right: -5rem; /* Adjust this value to position the label correctly */
+  width: 40px;
+  height: 20px;
+  background-color: rgb(255, 213, 0);
+  border-radius: 3px;
+}
+
+/* Optional: Initially hide all event-text elements */
+.event-text {
+  display: inside; /* Show text as the button is visible */
+}
+
+/* Show the element with the "next" class */
+.event-text.next {
+  display: inside; /* This class will make the nearest event visible */
 }

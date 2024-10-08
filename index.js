@@ -1321,60 +1321,63 @@ buttons.forEach(button => {
     eventText.classList.add("line-through");
   }
 });
-// } else {
-//   // Hide the element if there are no upcoming dates left
-//   eventElement.style.display = "none";
-// }
-// const raceDates = [
-//   new Date("2024-03-02"),
-//   new Date("2024-03-09"),
-//   new Date("2024-03-24"),
-//   new Date("2024-04-07"),
-//   new Date("2024-04-21"),
-//   new Date("2024-05-05"),
-//   new Date("2024-05-19"),
-//   new Date("2024-05-26"),
-//   new Date("2024-06-09"),
-//   new Date("2024-06-23"),
-//   new Date("2024-06-30"),
-//   new Date("2024-07-07"),
-//   new Date("2024-07-21"),
-//   new Date("2024-07-28"),
-//   new Date("2024-08-25"),
-//   new Date("2024-09-01"),
-//   new Date("2024-09-15"),
-//   new Date("2024-09-22"),
-//   new Date("2024-10-20"),
-//   new Date("2024-10-27"),
-//   new Date("2024-11-03"),
-//   new Date("2024-11-24"),
-//   new Date("2024-12-01"),
-//   new Date("2024-12-08"),
-// ];
 
-// const today = new Date();
-// today.setHours(0, 0, 0, 0);
+// const currdate = new Date();
 
-// function getUpcomingDate(dates) {
-//   const upcomingDates = dates.filter(date => date >= today);
+// const button = document.querySelectorAll(".nextevent");
 
-//   upcomingDates.sort((a, b) => a - b);
-
-//   return upcomingDates.length > 0 ? upcomingDates[0] : undefined;
-// }
-
-// const closestDate = getUpcomingDate(raceDates);
-
-// const eventElement = document.getElementsByClassName("nextevent");
-
-// if (closestDate) {
-//   if (today.getTime() === closestDate.getTime()) {
-//     eventElement.style.display = "block";
+// button.forEach(button => {
+//   const nextButton = new Date(button.getAttribute("data-date"));
+//   const eventText = button.querySelector(".event-text");
+//   if (currdate <= nextButton) {
+//     eventText.classList.add("next");
 //   } else {
-//     // Hide the element on all other dates
-//     eventElement.style.display = "none";
+//     eventText.classList.remove("next");
 //   }
-// } else {
-//   // Hide the element if there are no upcoming dates left
-//   eventElement.style.display = "none";
-// }
+// });
+
+// const currDate = new Date();
+// const range = 14 * 24 * 60 * 60 * 1000;
+// const button = document.querySelectorAll(".nextevent");
+// button.forEach(button => {
+//   const eventDate = new Date(button.getAttribute("data-date"));
+//   const eventText = button.querySelector(".event-text");
+//   const difference = eventDate.getTime() - currDate.getTime();
+//   console.log(difference);
+//   if (Math.abs(difference) <= range) {
+//     eventText.classList.add("next");
+//   } else if (difference < 0) {
+//     eventText.classList.remove("next");
+//   } else if (difference > range) {
+//     eventText.classList.remove("next");
+//   }
+// });
+
+const currDate = new Date(); // Current date
+const button = document.querySelectorAll(".nextevent"); // Get all event buttons
+
+let nearestButton = null; // Variable to store the nearest upcoming button
+let nearestDate = null; // Variable to store the nearest upcoming date
+
+// Loop through each event button to find the nearest upcoming date
+button.forEach(button => {
+  const eventDate = new Date(button.getAttribute("data-date")); // Get the date from the data attribute
+
+  // Check if the event date is in the future and either it is the first found or closer than the previous one
+  if (eventDate > currDate && (!nearestDate || eventDate < nearestDate)) {
+    nearestDate = eventDate; // Update the nearest date
+    nearestButton = button; // Update the nearest button
+  }
+});
+
+// Loop again to hide all events and only show the nearest upcoming event
+button.forEach(button => {
+  const eventText = button.querySelector(".event-text");
+
+  // If this button is the nearest upcoming event, show it
+  if (button === nearestButton) {
+    eventText.classList.add("next"); // Add class to show nearest event
+  } else {
+    eventText.classList.remove("next"); // Remove class for others
+  }
+});
