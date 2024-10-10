@@ -438,10 +438,36 @@ async function main() {
       </table>
     `;
 
-  // Insert the table into the desired HTML element
   document
     .getElementById("bahrain")
     .insertAdjacentHTML("beforeend", bahrainData);
+
+  // function checkPastEvents() {
+  //   const currentDate = new Date();
+  //   const currentYear = currentDate.getFullYear();
+
+  //   // Select all rows in the table (now part of the DOM)
+  //   const rows = document.querySelectorAll("#bahraintr table tbody tr");
+
+  //   rows.forEach(row => {
+  //     // Get the date text from the second <td> (index 1)
+  //     const dateText = row.querySelector("td:nth-child(2)").innerText;
+  //     // Assuming format is 'MMM DD' (e.g., 'Dec 01')
+  //     const fullDateText = `${dateText} ${currentYear}`;
+
+  //     // Create a new date object from the 'MMM DD YYYY' format
+  //     const eventDate = new Date(fullDateText);
+
+  //     // Compare the event date with the current date
+  //     if (eventDate < currentDate) {
+  //       // Add the 'past-event' class if the event date is in the past
+  //       row.classList.add("past-event");
+  //     }
+  //   });
+  // }
+
+  // Run the date-checking function immediately after inserting the table
+  // checkPastEvents();
 
   const saudiData = `
       <table>
@@ -1282,6 +1308,54 @@ async function main() {
   document
     .getElementById("abuDhabi")
     .insertAdjacentHTML("beforeend", abuDhabiData);
+
+  function checkPastEventsForMultipleIDs() {
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const ids = [
+      "bahraintr",
+      "sauditr",
+      "ausiitr",
+      "abuDhabitr",
+      "azerbaijantr",
+      "belgiantr",
+      "braziltr",
+      "britishtr",
+      "canadatr",
+      "chinatr",
+      "emiliatr",
+      "japantr",
+      "hungarytr",
+      "miamitr",
+      "mexicotr",
+      "monacotr",
+      "qatartr",
+      "singaporetr",
+      "spaintr",
+      "usatr",
+      "vegastr",
+      "italytr",
+      "dutchtr",
+      "austriatr",
+    ];
+
+    ids.forEach(id => {
+      const rows = document.querySelectorAll(`#${id} table tbody tr`);
+
+      rows.forEach(row => {
+        const dateText = row.querySelector("td:nth-child(2)").innerText;
+        const fullDateText = `${dateText} ${currentYear}`;
+        const eventDate = new Date(fullDateText);
+
+        if (eventDate < currentDate) {
+          row.classList.add("past-event"); // Add the past-event class if the event date is in the past
+        }
+      });
+    });
+  }
+
+  // Call the function after inserting tables
+  checkPastEventsForMultipleIDs();
 }
 
 main();
@@ -1314,44 +1388,14 @@ buttons.forEach(button => {
 
   // Get the bold text element inside the button
   const eventText = button.querySelector(".event-text");
-
-  // Check if the current date is after the event date
-  if (currentDate >= eventDate) {
+  const eventTime = button.querySelector(".buttonRaceTimeAndDate");
+  // Check if the current date is after the event date and event time
+  if (currentDate >= eventDate && eventTime) {
     // Add the 'line-through' class to the event text
     eventText.classList.add("line-through");
+    eventTime.classList.add("line-through");
   }
 });
-
-// const currdate = new Date();
-
-// const button = document.querySelectorAll(".nextevent");
-
-// button.forEach(button => {
-//   const nextButton = new Date(button.getAttribute("data-date"));
-//   const eventText = button.querySelector(".event-text");
-//   if (currdate <= nextButton) {
-//     eventText.classList.add("next");
-//   } else {
-//     eventText.classList.remove("next");
-//   }
-// });
-
-// const currDate = new Date();
-// const range = 14 * 24 * 60 * 60 * 1000;
-// const button = document.querySelectorAll(".nextevent");
-// button.forEach(button => {
-//   const eventDate = new Date(button.getAttribute("data-date"));
-//   const eventText = button.querySelector(".event-text");
-//   const difference = eventDate.getTime() - currDate.getTime();
-//   console.log(difference);
-//   if (Math.abs(difference) <= range) {
-//     eventText.classList.add("next");
-//   } else if (difference < 0) {
-//     eventText.classList.remove("next");
-//   } else if (difference > range) {
-//     eventText.classList.remove("next");
-//   }
-// });
 
 const currDate = new Date(); // Current date
 const button = document.querySelectorAll(".nextevent"); // Get all event buttons
@@ -1380,4 +1424,27 @@ button.forEach(button => {
   } else {
     eventText.classList.remove("next"); // Remove class for others
   }
+});
+
+// script.js
+document.addEventListener("DOMContentLoaded", function () {
+  // Select all buttons with the specified class
+  const buttons = document.querySelectorAll(
+    ".collapsible.special.date-button.nextevent"
+  );
+
+  // Loop through each button and add a click event listener
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      // Find the corresponding buttonRaceTimeAndDate element
+      const timeAndDate = button.querySelector(".buttonRaceTimeAndDate");
+
+      // Check current visibility state and toggle
+      if (timeAndDate.style.visibility === "hidden") {
+        timeAndDate.style.visibility = "visible"; // Hide the element
+      } else {
+        timeAndDate.style.visibility = "hidden"; // Show the element
+      }
+    });
+  });
 });

@@ -51,9 +51,9 @@ a:active {
 .arrow {
   border: solid whitesmoke;
   border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  margin: auto;
+  display: block;
+  padding: 3.5px;
+  margin-top: -15px;
 }
 
 .indicator {
@@ -193,14 +193,21 @@ ul {
 
 .line-through {
   text-decoration: line-through;
+  text-decoration-skip: spaces;
   color: #5b5a5a;
   text-shadow: none;
 }
 
-/* .next::before {
+.event-text {
+  margin-top: -2px;
+  display: block;
+  position: absolute;
+  margin-left: 5rem;
+}
+
+.next::before {
   display: flex;
   font-weight: bold;
-  padding: none;
   content: "NEXT";
   color: black;
   text-shadow: none;
@@ -208,41 +215,42 @@ ul {
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 50rem;
+  right: -5rem;
   width: 40px;
   height: 20px;
   background-color: rgb(255, 213, 0);
   border-radius: 3px;
+}
+
+.event-text {
+  display: inside;
+}
+
+.event-text.next {
+  display: inside;
+}
+
+/* .buttonRaceTimeAndDate {
+  margin-left: 20rem;
 } */
 
-.event-text {
-  position: relative; /* Positioning context for the ::before pseudo-element */
+span {
+  margin: 25px;
+  text-decoration: none;
 }
 
-/* Style for the NEXT label */
-.next::before {
-  display: flex;
+.past-event td {
   font-weight: bold;
-  content: "NEXT"; /* Content of the pseudo-element */
-  color: black;
+  text-decoration: line-through;
+  color: #5b5a5a !important;
   text-shadow: none;
-  font-size: 11px;
-  justify-content: center;
-  align-items: center;
-  position: absolute; /* Absolutely positioned relative to .event-text */
-  right: -5rem; /* Adjust this value to position the label correctly */
-  width: 40px;
-  height: 20px;
-  background-color: rgb(255, 213, 0);
-  border-radius: 3px;
 }
 
-/* Optional: Initially hide all event-text elements */
-.event-text {
-  display: inside; /* Show text as the button is visible */
-}
-
-/* Show the element with the "next" class */
-.event-text.next {
-  display: inside; /* This class will make the nearest event visible */
+.buttonRaceTimeAndDate {
+  display: block;
+  visibility: visible; /* Initially visible */
+  height: auto; /* Allow height to adjust */
+  margin-left: 30rem;
+  opacity: 1; /* Initially fully visible */
+  transition: opacity 0.3s ease;
 }
