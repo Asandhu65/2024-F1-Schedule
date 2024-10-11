@@ -53,6 +53,7 @@ a:active {
 }
 
 .arrow {
+  display: block;
   border: solid whitesmoke;
   border-width: 0 3px 3px 0;
   display: block;
@@ -159,6 +160,7 @@ td {
   color: #fff;
   font-weight: 400;
   padding: 1rem 5rem;
+  text-align: center;
 }
 
 .disabled td {
@@ -196,6 +198,7 @@ ul {
 }
 
 .line-through {
+  font-size: 1rem;
   text-decoration: line-through;
   text-decoration-skip: spaces;
   color: #5b5a5a;
@@ -226,10 +229,6 @@ ul {
   border-radius: 3px;
 }
 
-.event-text {
-  display: inside;
-}
-
 .event-text.next {
   display: inside;
 }
@@ -248,9 +247,104 @@ span {
 
 .buttonRaceTimeAndDate {
   display: block;
+  font-size: 1rem;
   visibility: visible; /* Initially visible */
   height: auto; /* Allow height to adjust */
   margin-left: 30rem;
   opacity: 1; /* Initially fully visible */
   transition: opacity 0.3s ease;
+}
+
+/* Media Queries */
+@media screen and (max-width: 860px) {
+  h1 {
+    font-size: 2rem;
+    max-width: 90%;
+    padding: 0.5rem 0;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  a {
+    font-size: 16px;
+    width: 90%;
+  }
+
+  .collapsible {
+    width: 95%;
+    font-size: 14px;
+  }
+
+  table {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  td {
+    padding: 0.5rem 0.25rem;
+  }
+
+  .event-text {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1rem;
+    margin-left: 1rem;
+  }
+
+  .next::before {
+    right: -3rem;
+  }
+
+  .buttonRaceTimeAndDate {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1rem;
+    margin-left: 10rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 0.9rem;
+  }
+
+  a {
+    font-size: 14px;
+  }
+
+  table,
+  td {
+    font-size: 12px;
+  }
+
+  .event-text {
+    display: flex;
+    position: relative;
+    left: 3rem;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 1rem;
+  }
+
+  .next::before {
+    font-size: 9px;
+    right: -2rem;
+    width: 30px;
+    height: 15px;
+  }
+
+  .buttonRaceTimeAndDate {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    font-size: 1rem;
+  }
 }
