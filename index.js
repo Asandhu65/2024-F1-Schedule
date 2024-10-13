@@ -442,33 +442,6 @@ async function main() {
     .getElementById("bahrain")
     .insertAdjacentHTML("beforeend", bahrainData);
 
-  // function checkPastEvents() {
-  //   const currentDate = new Date();
-  //   const currentYear = currentDate.getFullYear();
-
-  //   // Select all rows in the table (now part of the DOM)
-  //   const rows = document.querySelectorAll("#bahraintr table tbody tr");
-
-  //   rows.forEach(row => {
-  //     // Get the date text from the second <td> (index 1)
-  //     const dateText = row.querySelector("td:nth-child(2)").innerText;
-  //     // Assuming format is 'MMM DD' (e.g., 'Dec 01')
-  //     const fullDateText = `${dateText} ${currentYear}`;
-
-  //     // Create a new date object from the 'MMM DD YYYY' format
-  //     const eventDate = new Date(fullDateText);
-
-  //     // Compare the event date with the current date
-  //     if (eventDate < currentDate) {
-  //       // Add the 'past-event' class if the event date is in the past
-  //       row.classList.add("past-event");
-  //     }
-  //   });
-  // }
-
-  // Run the date-checking function immediately after inserting the table
-  // checkPastEvents();
-
   const saudiData = `
       <table>
         <tbody>
