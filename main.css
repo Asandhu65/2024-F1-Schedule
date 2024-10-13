@@ -12,6 +12,11 @@ h1 {
   margin: auto;
   padding: 1rem 0 0 0;
 }
+button {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
 
 h2 {
   color: #9e0006;
@@ -58,7 +63,7 @@ a:active {
   border-width: 0 3px 3px 0;
   display: block;
   padding: 3.5px;
-  margin-top: -15px;
+  margin-top: -30px;
 }
 
 .indicator {
@@ -140,6 +145,15 @@ table {
   background: black;
   border-radius: 0.25em;
   border-collapse: collapse;
+  width: 50%;
+}
+
+td {
+  color: #fff;
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 1rem 5rem;
+  text-align: center;
 }
 
 td:first-child {
@@ -154,13 +168,6 @@ td:last-child {
   color: #fff;
   font-weight: 400;
   padding: 1rem;
-}
-
-td {
-  color: #fff;
-  font-weight: 400;
-  padding: 1rem 5rem;
-  text-align: center;
 }
 
 .disabled td {
@@ -206,7 +213,7 @@ ul {
 }
 
 .event-text {
-  margin-top: -2px;
+  margin-top: 1rem;
   display: block;
   position: absolute;
   margin-left: 5rem;
@@ -246,25 +253,25 @@ span {
 }
 
 .buttonRaceTimeAndDate {
-  display: block;
+  display: flex;
   font-size: 1rem;
   visibility: visible; /* Initially visible */
-  height: auto; /* Allow height to adjust */
-  margin-left: 30rem;
+  justify-content: right;
+  align-items: center;
   opacity: 1; /* Initially fully visible */
   transition: opacity 0.3s ease;
 }
 
 /* Media Queries */
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 1024px) {
   h1 {
-    font-size: 2rem;
+    font-size: 3rem;
     max-width: 90%;
     padding: 0.5rem 0;
   }
 
   h2 {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   a {
@@ -279,72 +286,97 @@ span {
 
   table {
     font-size: 14px;
-    width: 100%;
+    width: 80%;
   }
 
   td {
     padding: 0.5rem 0.25rem;
   }
 
+  .arrow {
+    display: block;
+    border: solid whitesmoke;
+    border-width: 0 3px 3px 0;
+    display: block;
+    padding: 3.5px;
+    margin-top: -25px;
+  }
   .event-text {
     display: flex;
-    justify-content: flex-start;
+    position: relative;
+    margin: 0;
+    margin-left: 50px;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: -2rem;
     font-size: 1rem;
-    margin-left: 1rem;
   }
 
   .next::before {
-    right: -3rem;
+    right: 23rem;
   }
 
   .buttonRaceTimeAndDate {
     display: flex;
-    justify-content: flex-end;
+    justify-content: right;
+    align-items: center;
     font-size: 1rem;
-    margin-left: 10rem;
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 768px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    text-wrap: wrap;
   }
 
   h2 {
-    font-size: 0.9rem;
+    font-size: 1.25rem;
   }
 
   a {
     font-size: 14px;
   }
 
-  table,
+  table {
+    width: 80%;
+  }
   td {
-    font-size: 12px;
+    font-size: 0.9rem;
   }
 
   .event-text {
     display: flex;
     position: relative;
-    left: 3rem;
-    justify-content: flex-start;
-    align-content: center;
+    margin: 0;
+    padding-bottom: 20px;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
     font-size: 1rem;
   }
 
   .next::before {
+    display: flex;
     font-size: 9px;
-    right: -2rem;
+    right: -0.5rem;
     width: 30px;
     height: 15px;
   }
 
   .buttonRaceTimeAndDate {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     flex-wrap: wrap;
     font-size: 1rem;
+    position: none;
+    margin: 0;
+  }
+
+  .arrow {
+    display: flex;
+    border: solid whitesmoke;
+    border-width: 0 3px 3px 0;
+    padding: 3.5px;
+    margin-top: -3rem;
   }
 }
