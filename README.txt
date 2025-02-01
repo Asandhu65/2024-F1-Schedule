@@ -1,4 +1,5 @@
-# 2024 F1 Schedule
+2024 F1 Schedule
+================
 
 2024 F1 Schedule is a web application that provides an easy-to-view schedule for the 2024 Formula 1 season. Built using React and Tailwind CSS, this app helps F1 fans stay updated on race dates, times, and locations.
 
@@ -8,40 +9,46 @@
 - 🕒 **Countdown Timer** -- Track the time remaining until the next race.
 
 
-## Demo
+Demo
+----
 
-Check out the live demo: [2024 F1 Schedule Live](#) *(https://f1schedule.netlify.app/)*
+Check out the live demo: 2024 F1 Schedule Live *(https://f1schedule.netlify.app/)*
 
-## Installation
+Installation
+------------
 
 1. Clone the repository:
 
-   ```bash
+   ```
    git clone https://github.com/Asandhu65/2024-F1-Schedule.git
+   ```
 
 1.  Navigate to the project folder:
 
-    bash
+    ```
 
     Copy
 
     cd 2024-F1-Schedule
+   ```
 
 2.  Install dependencies:
 
-    bash
+    ```
 
     Copy
 
     npm install
+   ```
 
 3.  Start the development server:
 
-    bash
+    ```
 
     Copy
 
     npm run dev
+   ```
 
 Usage
 -----
